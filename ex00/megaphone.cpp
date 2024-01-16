@@ -3,31 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocorrea <jocorrea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anyela <anyela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:38:52 by jocorrea          #+#    #+#             */
-/*   Updated: 2024/01/13 16:13:14 by jocorrea         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:34:24 by anyela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
-void	to_up(int argc, char *argv[])
+
+void	to_up(char *argv[])
 {
-	int i;
-	int j;
-	i = 0;
-	while (++i < argc)
-	{
-		j = -1;
-		while (argv[i][++j])
-		{
-			if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
-				argv[i][j] -= 32;
-			std::cout << argv[i][j];
-		}
-	}
-	std::cout << std::endl;
+	for (int i = 1; argv[i]; i++)
+        for (int j = 0; argv[i][j]; j++)
+            std::cout << (char)toupper(argv[i][j]);
+    std::cout << std::endl;
 }
 
 int main(int argc, char *argv[])
@@ -35,6 +27,6 @@ int main(int argc, char *argv[])
 	if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
-		to_up(argc, argv);
+		to_up(argv);
 	return (0);
 }
